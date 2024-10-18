@@ -7,7 +7,10 @@ const mongoose = require('mongoose'); // Import mongoose
 require('dotenv').config();
 const cors = require('cors');
 
-//========================================
+// const userRoutes = require('./routes/userRoutes');
+// const deliveryRoutes = require('./routes/deliveryRoutes');
+// const managerRoutes = require('./routes/managerRoutes');
+const superAdminRoutes = require('./routes/superAdminRoutes');
 
 const app = express();
 const PORT = process.env.PORT;
@@ -32,6 +35,7 @@ app.use('/superadmin', superadminRoutes);
 // app.use('/user', userRoutes);
 // app.use('/delivery', deliveryRoutes);
 // app.use('/manager', managerRoutes);
+app.use('/superadmin', superAdminRoutes);
 
 // Start the server after connecting to the database
 if (process.env.NODE_ENV !== 'test') {
