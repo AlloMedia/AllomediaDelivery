@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const User = require('./userModel');
+const Item = require('./itemModel');
 
 const orderSchema = new mongoose.Schema({
     user: {
@@ -38,7 +39,7 @@ const orderSchema = new mongoose.Schema({
     },
     status: {
         type: String,
-        enum: ['Pending', 'Processing', 'Delivered', 'Cancelled'],
+        enum: ['Pending', 'Processing', 'Delivered', 'Cancelled', 'Rejected'],
         default: 'Pending'
     }
 }, {

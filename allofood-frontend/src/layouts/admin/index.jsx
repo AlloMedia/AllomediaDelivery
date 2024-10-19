@@ -75,7 +75,6 @@ export default function Admin(props) {
               secondary={getActiveNavbar(routes)}
               {...rest}
             />
-
             <div className="pt-5s mx-auto mb-auto h-full min-h-[84vh] p-2 md:pr-2">
               <Routes>
                 {getRoutes(routes)}
@@ -89,10 +88,6 @@ export default function Admin(props) {
             <div className="p-3">
               <Footer />
             </div>
-
-
-
-
           </div>
         </main>
       </div>

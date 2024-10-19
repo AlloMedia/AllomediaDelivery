@@ -7,7 +7,7 @@ module.exports = async () => {
     await Order.deleteMany({});
 
     // Fetch users by their names
-    const userNames = ["Manager", "Client"];
+    const userNames = ["Manager", "Client", "Delivery"];
     const users = await User.find({ name: { $in: userNames } });
     
     const itemNames = ["Coca Cola", "Burger", "Chips"]; 
@@ -46,11 +46,86 @@ module.exports = async () => {
             item: items[2]._id,
             quantity: 3,
             price: 15.0
+          },
+          {
+            item: items[1]._id,
+            quantity: 1,
+            price: 20.0
           }
         ],
         totalPrice: 45.0,
         status: 'Processing'
-      }
+      },
+
+      {
+        user: users[2]._id,
+        items: [
+          {
+            item: items[2]._id,
+            quantity: 3,
+            price: 15.0
+          },
+          {
+            item: items[1]._id,
+            quantity: 1,
+            price: 20.0
+          }
+        ],
+        totalPrice: 45.0,
+        status: 'Processing'
+      },
+      {
+        user: users[1]._id,
+        items: [
+          {
+            item: items[2]._id,
+            quantity: 3,
+            price: 15.0
+          },
+          {
+            item: items[1]._id,
+            quantity: 1,
+            price: 20.0
+          }
+        ],
+        totalPrice: 45.0,
+        status: 'Processing'
+      },
+      {
+        user: users[0]._id,
+        items: [
+          {
+            item: items[0]._id,
+            quantity: 2,
+            price: 10.0
+          },
+          {
+            item: items[1]._id,
+            quantity: 1,
+            price: 20.0
+          }
+        ],
+        totalPrice: 40.0,
+        status: 'Pending'
+      },
+      {
+        user: users[0]._id,
+        items: [
+          {
+            item: items[0]._id,
+            quantity: 2,
+            price: 10.0
+          },
+          {
+            item: items[1]._id,
+            quantity: 1,
+            price: 20.0
+          }
+        ],
+        totalPrice: 40.0,
+        status: 'Pending'
+      },
+
     ];
 
     await Order.insertMany(orders);
